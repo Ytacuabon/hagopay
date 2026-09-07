@@ -1,0 +1,1021 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trần Thiên Châu | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #eef2f1;
+            --card: rgba(255, 255, 255, 0.78);
+            --text: #33403d;
+            --subtext: #71807c;
+            --primary: #78968e;
+            --secondary: #a8bbb5;
+            --accent: #dce7e3;
+            --border: rgba(90, 115, 108, 0.15);
+        }
+
+        body.dark {
+            --bg: #202a28;
+            --card: rgba(42, 55, 52, 0.82);
+            --text: #e8efed;
+            --subtext: #b7c5c1;
+            --primary: #9bb7b0;
+            --secondary: #718f87;
+            --accent: #34433f;
+            --border: rgba(220, 231, 227, 0.12);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(
+                    circle at 20% 10%,
+                    rgba(168, 187, 181, 0.25),
+                    transparent 30%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            line-height: 1.7;
+            transition: background 0.4s, color 0.4s;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        /* =========================
+           MENU
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        body.dark header {
+            background: rgba(32, 42, 40, 0.65);
+        }
+
+        nav {
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        #themeButton {
+            width: 40px;
+            height: 40px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: var(--accent);
+            color: var(--text);
+
+            cursor: pointer;
+            font-size: 17px;
+
+            transition: 0.3s;
+        }
+
+        #themeButton:hover {
+            transform: rotate(15deg) scale(1.08);
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding-top: 70px;
+        }
+
+        .hero-content {
+            animation: fadeUp 1s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar {
+            width: 165px;
+            height: 165px;
+
+            object-fit: cover;
+            border-radius: 50%;
+
+            border: 5px solid var(--secondary);
+
+            box-shadow:
+                0 12px 35px rgba(70, 90, 85, 0.18);
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            color: var(--subtext);
+            font-size: 19px;
+            margin-bottom: 28px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            border-radius: 30px;
+
+            background: var(--primary);
+            color: white;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: var(--secondary);
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(80, 105, 98, 0.2);
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: var(--subtext);
+        }
+
+        /* =========================
+           GIỚI THIỆU
+        ========================== */
+
+        .about-card {
+            max-width: 820px;
+            margin: auto;
+
+            padding: 35px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 12px 35px rgba(60, 80, 75, 0.06);
+        }
+
+        .about-card p {
+            color: var(--subtext);
+            font-size: 17px;
+        }
+
+        .about-card strong {
+            color: var(--primary);
+        }
+
+        /* =========================
+           KỸ NĂNG
+        ========================== */
+
+        .skills {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(210px, 1fr));
+
+            gap: 20px;
+        }
+
+        .skill {
+            padding: 28px;
+
+            text-align: center;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-7px);
+            border-color: var(--secondary);
+        }
+
+        .skill .icon {
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .skill h3 {
+            margin-bottom: 5px;
+        }
+
+        .skill p {
+            color: var(--subtext);
+        }
+
+        /* =========================
+           SỞ THÍCH
+        ========================== */
+
+        .hobbies {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 20px;
+        }
+
+        .hobby {
+            padding: 30px;
+
+            text-align: center;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            transition: 0.3s;
+        }
+
+        .hobby:hover {
+            transform: translateY(-6px);
+        }
+
+        .hobby span {
+            font-size: 42px;
+        }
+
+        .hobby h3 {
+            margin-top: 10px;
+        }
+
+        .hobby p {
+            color: var(--subtext);
+        }
+
+        /* =========================
+           MỤC TIÊU
+        ========================== */
+
+        .goal {
+            max-width: 820px;
+            margin: auto;
+
+            padding: 40px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8da8a0,
+                    #a9bdb7
+                );
+
+            color: white;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 15px 35px rgba(70, 90, 85, 0.15);
+        }
+
+        .goal h3 {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           LIÊN HỆ
+        ========================== */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+        .contact-button {
+            padding: 12px 22px;
+
+            border-radius: 30px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .contact-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 30px;
+
+            text-align: center;
+
+            color: var(--subtext);
+
+            border-top: 1px solid var(--border);
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .avatar {
+                width: 135px;
+                height: 135px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .about-card,
+            .goal {
+                padding: 25px;
+            }
+        }
+
+        /* =========================
+           TTC PAY - QUẢNG BÁ DỊCH VỤ
+        ========================== */
+        .promo-section {
+            padding: 80px 0 40px;
+        }
+
+        .promo-card {
+            max-width: 1050px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 28px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            box-shadow: 0 18px 45px rgba(60, 80, 75, 0.12);
+            backdrop-filter: blur(16px);
+        }
+
+        .promo-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .promo-caption {
+            padding: 18px 24px 22px;
+            text-align: center;
+            color: var(--subtext);
+            font-size: 14px;
+        }
+
+        .promo-caption strong {
+            color: var(--primary);
+        }
+
+        @media (max-width: 700px) {
+            .promo-section {
+                padding: 55px 0 25px;
+            }
+
+            .promo-card {
+                border-radius: 20px;
+            }
+
+            .promo-caption {
+                padding: 14px 16px 18px;
+                font-size: 13px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <header>
+
+        <div class="container">
+
+            <nav>
+
+                <div class="logo">
+                    T.T.C
+                </div>
+
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="#home">
+                            Trang chủ
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#about">
+                            Giới thiệu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#dich-vu">
+                            Dịch vụ
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#skills">
+                            Kỹ năng
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#hobbies">
+                            Sở thích
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Liên hệ
+                        </a>
+                    </li>
+
+                    <li>
+                        <button id="themeButton">
+                            🌙
+                        </button>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         TRANG CHỦ
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <img
+                    class="avatar"
+                    src="./avatar.png"
+                    alt="Ảnh đại diện của Trần Thiên Châu"
+                >
+
+                <h1>
+                    Xin chào, mình là
+                    <span>Trần Thiên Châu</span> 👋
+                </h1>
+
+                <p>
+                    Sinh năm 2001 • Welcome to my personal space
+                </p>
+
+                <a
+                    class="button"
+                    href="#about"
+                >
+                    Tìm hiểu về mình
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================
+         TTC PAY - QUẢNG BÁ DỊCH VỤ
+    ========================== -->
+
+    <section class="promo-section" id="dich-vu">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>💎 TTC PAY — Bảng giá dịch vụ</h2>
+                <p>Thông tin dịch vụ và giá tham khảo</p>
+            </div>
+
+            <div class="promo-card">
+
+                <img
+                    src="./ttc-pay-poster.png"
+                    alt="TTC PAY - bảng giá dịch vụ, giá kim cương, lưu ý giao dịch bằng STK chính chủ và thông tin liên hệ Zalo"
+                >
+
+                <div class="promo-caption">
+                    <strong>Lưu ý:</strong> Số lượng các gói có thể thay đổi theo từng tháng.
+                    Vui lòng kiểm tra tình trạng còn hàng trước khi giao dịch.
+                    <br>
+                    Zalo hỗ trợ: <strong>0384209401</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GIỚI THIỆU
+    ========================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>👤 Về mình</h2>
+
+                <p>
+                    Một chút thông tin về Trần Thiên Châu
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <p>
+                    Xin chào! Mình là
+                    <strong>Trần Thiên Châu</strong>,
+                    sinh năm <strong>2001</strong>.
+
+                    <br><br>
+
+                    Mình là một người luôn muốn học hỏi,
+                    cải thiện bản thân và làm mọi thứ
+                    ngày một tốt hơn.
+
+                    <br><br>
+
+                    Mình đặc biệt yêu thích những khoảng
+                    thời gian được chơi game, nghe nhạc
+                    và tận hưởng những điều mình yêu thích
+                    sau những giờ làm việc.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         KỸ NĂNG
+    ========================== -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>💻 Điều mình hướng tới</h2>
+
+                <p>
+                    Những giá trị mình muốn phát triển
+                </p>
+
+            </div>
+
+
+            <div class="skills">
+
+                <div class="skill">
+
+                    <div class="icon">
+                        📈
+                    </div>
+
+                    <h3>
+                        Chất lượng
+                    </h3>
+
+                    <p>
+                        Luôn cố gắng nâng cao chất lượng
+                        công việc của mình.
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Học hỏi
+                    </h3>
+
+                    <p>
+                        Không ngừng học hỏi và cải thiện
+                        những điều còn thiếu.
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Hiệu quả
+                    </h3>
+
+                    <p>
+                        Tìm cách làm việc hiệu quả hơn
+                        và tối ưu hơn mỗi ngày.
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Phát triển
+                    </h3>
+
+                    <p>
+                        Từng bước trở nên tốt hơn
+                        trong công việc và cuộc sống.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SỞ THÍCH
+    ========================== -->
+
+    <section id="hobbies">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>❤️ Sở thích</h2>
+
+                <p>
+                    Những điều mình thích làm khi có thời gian
+                </p>
+
+            </div>
+
+
+            <div class="hobbies">
+
+                <div class="hobby">
+
+                    <span>
+                        🎮
+                    </span>
+
+                    <h3>
+                        Chơi game
+                    </h3>
+
+                    <p>
+                        Giải trí, thư giãn và khám phá
+                        những thế giới khác nhau.
+                    </p>
+
+                </div>
+
+
+                <div class="hobby">
+
+                    <span>
+                        🎧
+                    </span>
+
+                    <h3>
+                        Nghe nhạc
+                    </h3>
+
+                    <p>
+                        Một chút âm nhạc để thư giãn
+                        và nạp lại năng lượng.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MỤC TIÊU
+    ========================== -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>🎯 Mục tiêu</h2>
+
+            </div>
+
+
+            <div class="goal">
+
+                <h3>
+                    Làm tốt hơn mỗi ngày
+                </h3>
+
+                <p>
+                    Mục tiêu của mình là cố gắng đưa
+                    chất lượng công việc lên cao hơn,
+                    hoàn thiện kỹ năng và tạo ra những
+                    kết quả ngày càng tốt hơn.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LIÊN HỆ
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="contact">
+
+                <div class="section-title">
+
+                    <h2>📩 Liên hệ</h2>
+
+                    <p>
+                        Kết nối với mình
+                    </p>
+
+                </div>
+
+
+                <div class="contact-buttons">
+
+                    <a
+                        class="contact-button"
+                        href="mailto:kamisever2@gmail.com"
+                    >
+                        📧 Email
+                    </a>kamisever2@gmail.com
+
+                    <a
+                        class="contact-button"
+                        href="[Facebook của bạn]"
+                        target="_blank"
+                    >
+                        📘 Facebook
+                    </a>
+
+                    <a
+                        class="contact-button"
+                        href="[Instagram của bạn]"
+                        target="_blank"
+                    >
+                        📸 Instagram
+                    </a>
+                   
+                    <a
+    class="contact-button"
+    href="https://www.tiktok.com/@chill.cung.to.2026"
+    target="_blank"
+>
+    <svg width="60" height="60" viewBox="0 0 30 30">
+        <path d="M24 4H6C4.895 4 4 4.895 4 6v18c0 1.105.895 2 2 2h18c1.105 0 2-.895 2-2V6c0-1.105-.896-2-2-2zm-1.311 9.474c-.13.012-.261.02-.393.02-1.495 0-2.809-.768-3.574-1.931v6.577c0 2.685-2.177 4.861-4.861 4.861S9 20.823 9 18.139s2.177-4.861 4.861-4.861c.102 0 .201.009.3.015v2.396c-.1-.012-.197-.03-.3-.03-1.37 0-2.481 1.111-2.481 2.481s1.11 2.481 2.481 2.481 2.581-1.08 2.581-2.45V6.512h2.289c.215 2.047 1.868 3.663 3.934 3.811v3.151z"/>
+    </svg>
+</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        © 2026 Trần Thiên Châu
+        • Made with ❤️
+
+    </footer>
+
+
+    <!-- =========================
+         DARK MODE
+    ========================== -->
+
+    <script>
+
+        const themeButton =
+            document.getElementById("themeButton");
+
+        themeButton.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle("dark");
+
+                if (
+                    document.body.classList.contains("dark")
+                ) {
+
+                    themeButton.textContent = "☀️";
+
+                } else {
+
+                    themeButton.textContent = "🌙";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
+```
